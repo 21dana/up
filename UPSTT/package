@@ -1,0 +1,224 @@
+#!/bin/bash
+#This project is done by Danayit Girma (GSR/2925/15) and Jale Lijalem (GSR/2053/15)
+echo "Dial *999# to get Ethio telecom package service"
+str1=*999#
+read str
+if [[ $str == $str1 ]]
+	then
+main ()
+{
+	echo "Welcome to Ethio telecom voice package,please enter number of your choice"
+		echo "1.For voice package"
+		echo "2.For Christmas package"
+		echo "3.exit"
+		read ans2
+		if [[ $ans2 == 1 ]]
+			then
+				rep
+				elif [[ $ans2 == 2 ]]
+				then
+				echo "Sorry, the gift duration is over!"
+		else
+			echo "Thank you for using the service"
+				exit
+				fi
+}
+rep ()
+{
+	echo "1.For yourself"
+		echo "2.For someone else"
+		echo "* To return back"
+		read ans6
+		if [[ $ans6 == 1 ]]
+			then
+				pack
+				elif [[ $ans6 == 2 ]]
+				then
+				checknum
+				elif [[ $ans6 == * ]]
+				then
+				main
+		else 
+			echo "You entered invalid input"
+				exit
+				fi
+}
+pack ()
+{
+	echo "1.Daily"
+		echo "2.Weekly"
+		echo "3.Monthly"
+		echo "4.Night"
+		echo "5.To return back"
+		echo "* Main Menu"
+		read ans7
+		if [[ $ans7 == 1 ]]
+			then
+				Daily
+				elif [[ $ans7 == 2 ]]
+				then
+				Weekly
+				elif [[ $ans7 == 3 ]]
+				then
+				Monthly
+				elif [[ $ans7 == 4 ]]
+				then
+				Night
+				elif [[ $ans7 == 5 ]]
+				then
+				rep
+				elif [[ $ans7 == * ]]
+				then
+				main
+		else
+			echo "You enetered invalid input"
+				fi
+}
+checknum ()
+{
+	echo "Please enter the phone number"
+		read phoneNumber
+		if [[ "$phoneNumber" != [0][9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9] ]]
+			then
+				echo "Sorry wrong phone number"
+		else
+			pack
+				fi
+}
+confirmation ()
+{
+	echo "You have choosen your package"
+		echo "1. Press 1 to confirm"
+		echo "2. Press any key to cancel"
+		echo "3. To return back"
+		echo "* Main menu"
+		read ans5
+		if [[ $ans5 == 1 ]]
+			then
+				echo -e "Your order is successful,you will receive short confirmation message\n"
+				sleep 5
+				short_msg
+				elif [[ $ans5 == 2 ]]
+				then
+				echo "Request cancelled"
+				elif [[ $ans5 == 3 ]]
+				then 
+				pack
+				elif [[ $ans5 == * ]]
+				then
+				main
+		else 
+			echo "you have enter invalid input"
+				exit
+				fi
+}
+
+Daily ()
+{
+	echo "1. 3 birr 12 min plus 3 msg"
+		echo "2. 5 birr 20 min plus 5 msg"
+		echo "3. 10 birr 45 min"
+		echo "4. To return back"
+		echo "* Main menu"
+		read ans4
+		if [[ $ans4 == 1 ]]
+			then 
+				confirmation
+				elif [[ $ans4 == 2 ]]
+				then
+				confirmation
+				elif [[ $ans4 == 3 ]]
+				then
+				confirmation
+				elif [[ $ans4 == 4 ]]
+				then
+				pack
+				elif [[ $ans4 == * ]]
+				then
+				main
+		else
+			echo "you entered invalid input"
+				fi
+}
+
+Weekly ()
+{
+	echo "1. 15 birr 70 min plus 15 msg"
+		echo "2. 20 birr 100 min plus 20 msg"
+		echo "3. To return back"
+		echo "* Main menu"
+		read ans8
+		if [[ $ans8 == 1 ]]
+			then
+				confirmation
+				elif [[ $ans8 == 2 ]]
+				then
+				confirmation
+				elif [[ $ans8 == 3 ]]
+				then
+				pack
+				elif [[ $ans8 == * ]]
+				then
+				main
+		else
+			echo "Your entered invalid input"
+				fi
+}
+
+Monthly ()
+{
+	echo "1. 35 birr 125 min plus 35 msg"
+		echo "2. 50 birr 200 min"
+		echo "3. To return back"
+		echo "* Main menu"
+		read ans10 
+		if [[ $ans10 == 1 ]]
+			then
+				confirmation
+				elif [[ $ans10 == 2 ]]
+				then
+				confirmation
+				elif [[ $ans10 == 3 ]]
+				then
+				pack
+				elif [[ $ans10 == * ]]
+				then
+				main
+		else
+			echo "You entered invalid input"
+				fi
+}
+
+Night ()
+{
+	echo "1. 3 birr 60 min plus 3 msg"
+		echo "2. 6 birr 140 min plus 6 msg"
+		echo "3. To return back"
+		echo "* Main menu"
+		read ans11 
+		if [[ $ans11 == 1 ]]
+			then
+				confirmation
+				elif [[ $ans11 == 2 ]]
+				then
+				confirmation
+				elif [[ $ans11 == 3 ]]
+				then
+				pack
+				elif [[ $ans11 == * ]]
+				then
+				main
+		else
+			echo "You entered invalid input"
+				fi
+}
+short_msg ()
+{
+	echo "Dear customer You have bought your desire package, for more information Please call 999
+		Ethio Telecom "
+}
+main
+else
+echo "Connection problem or invalid MMI code"
+exit
+fi 
